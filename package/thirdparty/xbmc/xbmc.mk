@@ -46,6 +46,12 @@ else
 XBMC_REMOTE_CONF = remote.conf
 endif
 
+ifneq ($(BR2_XBMC_SPLASH),)
+XBMC_SPLASH_FILE = $(BR2_XBMC_SPLASH)
+else
+XBMC_SPLASH_FILE = package/thirdparty/xbmc/splash.png
+endif
+
 XBMC_CONF_ENV += PYTHON_VERSION="$(PYTHON_VERSION_MAJOR)"
 XBMC_CONF_ENV += PYTHON_LDFLAGS="-L$(STAGING_DIR)/usr/lib/ -lpython$(PYTHON_VERSION_MAJOR) -lpthread -ldl -lutil -lm"
 XBMC_CONF_ENV += PYTHON_CPPFLAGS="-I$(STAGING_DIR)/usr/include/python$(PYTHON_VERSION_MAJOR)"
@@ -74,7 +80,7 @@ endef
 endif
 
 define XBMC_INSTALL_SPLASH
-  cp -f package/thirdparty/xbmc/splash.png $(TARGET_DIR)/usr/share/xbmc/media/Splash.png
+  cp -f $(XBMC_SPLASH_FILE) $(TARGET_DIR)/usr/share/xbmc/media/Splash.png
 endef
 
 define XBMC_CLEAN_UNUSED_ADDONS
