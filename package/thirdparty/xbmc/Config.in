@@ -93,3 +93,9 @@ config BR2_XBMC_REMOTE_CONF
 	help
 	  File to copy to remote.conf in /etc/xbmc directory.
 
+config BR2_XBMC_SPLASH
+	string "XBMC splash screen (1280x720 png)
+	default ""
+	help
+	  Splash screen which will replace default one
+

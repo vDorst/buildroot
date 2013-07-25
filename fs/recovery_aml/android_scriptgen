@@ -240,6 +240,11 @@ def main():
 	f.write('       delete("/tmp/aml_logo.img"));\n')
         f.write('show_progress(0.018000, 0);\n')
         f.write('unmount("/system");\n')
+        """
+	    NFTL part won't be needed for MX boards because Amlogic is not using NFTL partition
+	    in their recent 4.2.2 sources. Instead of that they are using emulated storage which
+	    is part of userdata partition. Yeey, no NFTL anymore! :)
+        """
         if options.boardname == "xiosm3" or options.boardname == "stvmc" or options.boardname == "f16ref" or options.boardname == "stvmx":
           f.write('ifelse\n')
           f.write('(\n')
