@@ -46,7 +46,7 @@ else
 XBMC_REMOTE_CONF = remote.conf
 endif
 
-ifneq ($(BR2_XBMC_SPLASH),)
+ifneq ($(strip $(BR2_XBMC_SPLASH)),"")
 XBMC_SPLASH_FILE = $(BR2_XBMC_SPLASH)
 else
 XBMC_SPLASH_FILE = package/thirdparty/xbmc/splash.png
