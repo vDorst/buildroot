@@ -205,6 +205,18 @@ config BR2_DEBIAN_MIRROR
 
 endif
 
+config BR2_SOURCEFORGE_MIRROR
+	string "Sourceforge mirror site"
+	default "hivelocity"
+	help
+	  Sourceforge has a system of mirror sites.  Some sites may be
+	  closer to your location, and sometimes mirror sites go down
+	  and are no longer available.  This option allows you to select
+	  your preferred Sourceforge mirror site.
+
+	  The list of mirrors is available here:
+	  http://sourceforge.net/apps/trac/sourceforge/wiki/Mirrors
+
 endmenu
 
 config BR2_JLEVEL
